@@ -76,8 +76,20 @@ document.querySelector("#pig-latin button").addEventListener('click',function(){
 document.querySelector("#cycle-image button").addEventListener('click',function(){
   // TASK #8
   var imgFlipper = document.querySelector('#cycle-image .answer-box')
-  // var image = document.querySelector('#cycle-image .answer-box img')
+  var image = document.querySelector('#cycle-image .answer-box img')
+  var urlStringArray = image.src.split('/')
+  // console.log(urlStringArray)
+  // console.log('------------')
+  var currentImgNum = parseInt(urlStringArray.pop())
+  
+  if(currentImgNum < 10) {
+    var nextImgNum = currentImgNum + 1
+  }
+  else {
+    var nextImgNum = 1
+  }
+ 
+  urlStringArray.push(nextImgNum)
+  image.src = urlStringArray.join('/')
 
-
-  imgFlipper.innerHTML = '<img src="http://lorempixel.com/400/200/city/"/>' 
 })
