@@ -55,7 +55,6 @@ document.querySelector("#reverse-squares button").addEventListener('click',funct
   // TASK #6a
   var squareContainer = document.querySelector("#reverse-squares .answer-box")
   var bunchoSquares = document.querySelectorAll(".square")
-  // var bunchoSquares = squareContainer.appendChild(bunchoSquares)
   for (var i = bunchoSquares.length; i--;) {
   		squareContainer.appendChild(bunchoSquares[i])  
   }
@@ -64,12 +63,21 @@ document.querySelector("#reverse-squares button").addEventListener('click',funct
 document.querySelector("#pig-latin button").addEventListener('click',function(){
   // TASK #7
   var taskList = document.querySelector("#tasks")
-  var listItem = document.querySelectorAll("#tasks li")
-  for (var i = listItem.length; i--;) {
-  		taskList.appendChild(listItem[i])
+  var listItems = document.querySelectorAll("#tasks li")
+
+  for (var i = 0; i < listItems.length; i++) {
+    var listItemContent = listItems[i].textContent
+    var newListItemContent = listItemContent.split('').reverse().join('')
+    listItems[i].textContent = newListItemContent
   }
+  
 })
 
 document.querySelector("#cycle-image button").addEventListener('click',function(){
   // TASK #8
+  var imgFlipper = document.querySelector('#cycle-image .answer-box')
+  // var image = document.querySelector('#cycle-image .answer-box img')
+
+
+  imgFlipper.innerHTML = '<img src="http://lorempixel.com/400/200/city/"/>' 
 })
